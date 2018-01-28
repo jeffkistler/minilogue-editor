@@ -1,0 +1,7 @@
+fieldset, legend {
+    border: none;
+}
+
+legend {
+    text-align: center;
+}

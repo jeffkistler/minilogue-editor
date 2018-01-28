@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`switch component renders correctly 1`] = `
+<div
+  className="switch-range switch-range-vertical"
+  onClick={[Function]}
+  onWheel={[Function]}
+>
+  <div
+    className="switch-value"
+    onMouseDown={[Function]}
+  />
+</div>
+`;

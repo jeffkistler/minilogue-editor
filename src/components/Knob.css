@@ -1,0 +1,14 @@
+.knob-value {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background: var(--control-value-background);
+    margin: 0 auto;
+}
+  
+.knob-value-inner {
+    margin: 0 auto; /* Center the tick mark */
+    width: 4px;
+    height: 40%;
+    background: var(--value-color);
+}

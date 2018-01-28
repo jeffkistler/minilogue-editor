@@ -1,0 +1,34 @@
+.table {
+  border: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  text-align: left;
+  padding: 1.6em;
+  vertical-align: top;
+  border: inherit;
+}
+
+.table thead tr {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.table thead th {
+  font-weight: bolder;
+  color: #3f3f3f;
+  vertical-align: bottom;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background-color: #e7e7e7;
+}
+
+.table tbody tr.selected {
+  background-color: #afafaf;
+}

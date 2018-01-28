@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`knob component renders correctly 1`] = `
+<div
+  className="knob-container"
+  onMouseDown={[Function]}
+  onWheel={[Function]}
+>
+  <div
+    className="knob-value"
+    style={
+      Object {
+        "transform": "rotate(-135deg)",
+      }
+    }
+  >
+    <div
+      className="knob-value-inner"
+    />
+  </div>
+</div>
+`;

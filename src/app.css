@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:600,700,800');
+html {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+}
+
+#app-root {
+    flex: 1 0 auto;
+    /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+    padding: 20px;
+}
+
+#footer {
+    flex-shrink: 0;
+    /* Prevent Chrome, Opera, and Safari from letting these items shrink to smaller than their content's default minimum size. */
+    padding: 20px;
+    font-size: 12px;
+    text-align: center;
+}

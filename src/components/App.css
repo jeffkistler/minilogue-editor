@@ -1,0 +1,36 @@
+:root {
+    --control-value-background: #2e3031;
+    --control-value-background-hover: #535557;
+    --control-value-background-active: #adadad;
+    --value-color: #F6F5F3;
+}
+
+.section-nav {
+    font-size: 1em;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.section-nav-item {
+    display: inline-block;
+    padding: 0 1em;
+}
+
+.section-nav-item a:link {
+    text-decoration: none;
+    color: var(--control-value-background);
+}
+
+.section-nav-item a:visited {
+    text-decoration: none;
+    color: var(--control-value-background);
+}
+
+.section-nav-item .active {
+    border-bottom: 3px solid var(--control-value-background);
+}
+
+.section-nav-item svg {
+    vertical-align: text-bottom;
+    margin-right: 1rem;
+}
