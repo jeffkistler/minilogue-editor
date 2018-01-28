@@ -21,9 +21,10 @@ import panelIcon from '../assets/panel.svg';
 import configurationIcon from '../assets/configuration.svg';
 import libraryIcon from '../assets/library.svg';
 
+const BASENAME = global.BASENAME || '';
 
 const App = () => (
-  <Router>
+  <Router baseName={BASENAME}>
     <div id="app">
       <Helmet titleTemplate="%s | Minilogue Editor" />
       <ul className="section-nav">
