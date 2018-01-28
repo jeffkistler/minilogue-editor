@@ -6,6 +6,9 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+  output: {
+    publicPath: '/minilogue-editor/',
+  },
   plugins: [
     new UglifyJSPlugin(),
     new webpack.DefinePlugin({
