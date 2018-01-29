@@ -21,8 +21,6 @@ import panelIcon from '../assets/panel.svg';
 import configurationIcon from '../assets/configuration.svg';
 import libraryIcon from '../assets/library.svg';
 
-const BASENAME = global.BASENAME || '';
-
 const App = () => (
   <Router baseName={BASENAME}>
     <div id="app">
