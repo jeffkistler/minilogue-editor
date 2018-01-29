@@ -16,5 +16,8 @@ module.exports = {
   extends: ['eslint:recommended', 'plugin:react/recommended', 'airbnb-base'],
   rules: {
     "function-paren-newline": ["error", "consistent"]
+  },
+  globals: {
+    BASENAME: true
   }
 };

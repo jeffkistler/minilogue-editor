@@ -1,7 +1,4 @@
 /**
- * The main container component.
- */
-/**
  * The main application layout component.
  */
 
@@ -21,8 +18,9 @@ import panelIcon from '../assets/panel.svg';
 import configurationIcon from '../assets/configuration.svg';
 import libraryIcon from '../assets/library.svg';
 
+
 const App = () => (
-  <Router baseName={BASENAME}>
+  <Router basename={BASENAME}>
     <div id="app">
       <Helmet titleTemplate="%s | Minilogue Editor" />
       <ul className="section-nav">
