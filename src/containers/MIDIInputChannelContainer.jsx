@@ -7,6 +7,7 @@ const mapStateToProps = (state) => {
   return {
     value: currentInputChannel,
     options: Array.from({ length: 16 }, (_, index) => ({ value: index, label: index })),
+    clearable: false,
   };
 };
 

@@ -11,6 +11,7 @@ const mapStateToProps = (state) => {
       value: output.id,
       label: output.name,
     })),
+    clearable: false,
   };
 };
 

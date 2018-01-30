@@ -13,7 +13,7 @@ const SliderAssign = ({ parameters, ...props }) => (
     title={getParameterDisplayValue(parameters, SLIDER_ASSIGN)}
   >
     <div className="control-wrapper">
-        <Select {...props} />
+        <Select clearable={false} {...props} />
     </div>
     <p className="control-label label">
     Slider Assign

@@ -30,7 +30,9 @@ const ParameterSwitch = (props) => {
         <div className="switch-label-wrapper">
           <ul className="switch-labels">
           {props.labels.map((label, labelIndex) => (
-            <li key={`label-${labelIndex}`}className="switch-label">{label}</li>
+            <li key={`label-${labelIndex}`} className="switch-label">
+              <div className="switch-value-label">{label}</div>
+            </li>
           ))}
           </ul>
         </div>
@@ -39,7 +41,9 @@ const ParameterSwitch = (props) => {
         <div className="switch-label-wrapper">
           <ul className="switch-labels">
             {Object.entries(DISPLAY_OPTIONS[parameter].choices).reverse().map(([key, value]) => (
-              <li key={key} className="switch-label">{value}</li>
+              <li key={key} className="switch-label">
+                <div className="switch-value-label">{value}</div>
+              </li>
             ))}
           </ul>
         </div>

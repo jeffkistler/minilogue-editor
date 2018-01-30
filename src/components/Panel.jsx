@@ -30,6 +30,8 @@ import sendIcon from '../assets/send.svg';
 import receiveIcon from '../assets/receive.svg';
 import linkIcon from '../assets/link.svg';
 import closeIcon from '../assets/close.svg';
+import downIcon from '../assets/down-arrow.svg';
+import upIcon from '../assets/up-arrow.svg';
 
 import sawtoothIcon from '../assets/saw.svg';
 import triangleIcon from '../assets/triangle.svg';
@@ -126,7 +128,7 @@ export default class Panel extends React.Component {
               title="Close"
               onClick={() => this.setState({ showLink: false })}
               style={{
-                position: 'absolute', top: '2px', left: '2px', cursor: 'pointer',
+                position: 'absolute', top: '2px', right: '2px', cursor: 'pointer',
               }}
             >
               <Icon use={closeIcon.id} viewBox={closeIcon.viewBox} height={20} width={20} />
@@ -376,9 +378,22 @@ export default class Panel extends React.Component {
             </div>
 
           </div>
-          {this.state.showExtraParameters && (
+          <div className={this.state.showExtraParameters ? 'slidedown' : 'slideup'}>
             <ExtraParameters parameters={parameters} />
-          )}
+          </div>
+          <div
+            style={{
+              cursor: 'pointer',
+            }}
+            title={`${this.state.showExtraParameters ? 'Hide' : 'Show'} Additional Parameters`}
+            onClick={() => this.setState(
+              prevState => ({ showExtraParameters: !prevState.showExtraParameters }),
+            )}>
+              {this.state.showExtraParameters
+                ? <Icon use={upIcon.id} viewBox={upIcon.viewBox} />
+                : <Icon use={downIcon.id} viewBox={downIcon.viewBox} />
+              }
+          </div>
         </div>
 
       </div>

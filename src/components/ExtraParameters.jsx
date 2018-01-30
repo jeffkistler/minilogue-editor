@@ -8,7 +8,7 @@ import SliderAssignContainer from '../containers/SliderAssignContainer.jsx';
 
 const ExtraParameters = ({ parameters }) => (
   <div id="extra-parameters" className="panel-group">
-    <h2 className="panel-group-label label">Additional Parameters</h2>
+    <h2 className="label">Additional Parameters</h2>
     <ParameterKnob
       parameters={parameters}
       parameter={programLib.BEND_RANGE_NEGATIVE}
