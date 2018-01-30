@@ -72,3 +72,12 @@ export const isSearchDeviceReply = data => (
   (data[3] === 0x01) &&
   (data[6] === 0x2c)
 );
+
+export const isProgramData = data => (
+  (data.length === 512) &&
+  (data[0] === 0) &&
+  (data[1] === 80) &&
+  (data[2] === 82) &&
+  (data[3] === 79) &&
+  (data[4] === 71)
+);

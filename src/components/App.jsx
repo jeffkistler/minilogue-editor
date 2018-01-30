@@ -3,12 +3,11 @@
  */
 
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  NavLink,
-} from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux';
 import { Helmet } from 'react-helmet';
+
+import history from '../history';
 import Icon from './Icon.jsx';
 import PanelContainer from '../containers/PanelContainer.jsx';
 import Library from './Library.jsx';
@@ -20,7 +19,7 @@ import libraryIcon from '../assets/library.svg';
 
 
 const App = () => (
-  <Router basename={BASENAME}>
+  <ConnectedRouter basename={BASENAME} history={history}>
     <div id="app">
       <Helmet titleTemplate="%s | Minilogue Editor" />
       <ul className="section-nav">
@@ -62,7 +61,7 @@ const App = () => (
       <Route path="/library" component={Library}/>
       <Route path="/configuration" component={Configuration}/>
     </div>
-  </Router>
+  </ConnectedRouter>
 );
 
 export default App;

@@ -5,13 +5,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import Modal from 'react-modal';
 import * as programLib from '../minilogue/program';
+import Button from './Button.jsx';
 import Knob from './Knob.jsx';
 import Icon from './Icon.jsx';
 import ActionMenu from './ActionMenu.jsx';
 import ExtraParameters from './ExtraParameters.jsx';
 import ParameterKnob from './ParameterKnob.jsx';
 import ParameterSwitch from './ParameterSwitch.jsx';
+import ProgramLink from './ProgramLink.jsx';
 import ProgramNameContainer from '../containers/ProgramNameContainer.jsx';
 import LibraryIndexContainer from '../containers/LibraryIndexContainer.jsx';
 import RandomProgramContainer from '../containers/RandomProgramContainer.jsx';
@@ -25,6 +28,8 @@ import './Panel.css';
 import randomIcon from '../assets/shuffle.svg';
 import sendIcon from '../assets/send.svg';
 import receiveIcon from '../assets/receive.svg';
+import linkIcon from '../assets/link.svg';
+import closeIcon from '../assets/close.svg';
 
 import sawtoothIcon from '../assets/saw.svg';
 import triangleIcon from '../assets/triangle.svg';
@@ -44,6 +49,8 @@ const WAVE_ICONS = [sawtoothIcon, triangleIcon, squareIcon].map(
   ),
 );
 
+Modal.setAppElement('#app-root');
+
 /**
  * The panel section layout component.
  */
@@ -54,6 +61,7 @@ export default class Panel extends React.Component {
 
   state = {
     showExtraParameters: false,
+    showLink: false,
   }
 
   render() {
@@ -86,6 +94,45 @@ export default class Panel extends React.Component {
               title="Request Program from Minilogue"
             />
           </RequestProgramContainer>
+          <Button
+            title="Make a Link for this Program"
+            onClick={() => this.setState({ showLink: true })}
+          >
+            <Icon
+              use={linkIcon.id}
+              viewBox={linkIcon.viewBox}
+              title="Make a Link for this Program"
+            />
+          </Button>
+          <Modal
+            isOpen={this.state.showLink}
+            onRequestClose={() => this.setState({ showLink: false })}
+            shouldCloseOnOverlayClick={true}
+            style={{
+              overlay: {
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+              },
+              content: {
+                top: '50%',
+                left: '50%',
+                right: 'auto',
+                bottom: 'auto',
+                marginRight: '-50%',
+                transform: 'translate(-50%, -50%)',
+              },
+            }}
+          >
+            <a
+              title="Close"
+              onClick={() => this.setState({ showLink: false })}
+              style={{
+                position: 'absolute', top: '2px', left: '2px', cursor: 'pointer',
+              }}
+            >
+              <Icon use={closeIcon.id} viewBox={closeIcon.viewBox} height={20} width={20} />
+            </a>
+            <ProgramLink program={parameters} />
+          </Modal>
         </ActionMenu>
 
         <div className="panel">

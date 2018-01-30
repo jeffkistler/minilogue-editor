@@ -29,6 +29,7 @@ const programMiddleware = ({ dispatch }) => next => (action) => {
   if (sysexData) {
     const decodedData = decodeSysexData(sysexData);
     const parsedProgram = decodeProgram(decodedData);
+
     dispatch(setCurrentProgram(parsedProgram));
   }
 };
