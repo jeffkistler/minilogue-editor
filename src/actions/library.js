@@ -13,7 +13,7 @@ export const CURRENT_LIBRARY_POSITION_SET = 'CURRENT_LIBRARY_POSITION_SET';
 export const setLibrary = library => (
   (dispatch) => {
     dispatch({ type: LIBRARY_SET, payload: { library } });
-    dispatch({ type: CURRENT_LIBRARY_POSITION_SET, payload: { index: undefined } });
+    dispatch({ type: CURRENT_LIBRARY_POSITION_SET, payload: { index: 0 } });
   }
 );
 

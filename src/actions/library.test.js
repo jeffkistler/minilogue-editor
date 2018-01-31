@@ -10,7 +10,7 @@ describe('library actions', () => {
     const mockStore = configureMockStore(middlewares);
     const expectedActions = [
       { type: actions.LIBRARY_SET, payload: { library: {} } },
-      { type: actions.CURRENT_LIBRARY_POSITION_SET, payload: { index: undefined } },
+      { type: actions.CURRENT_LIBRARY_POSITION_SET, payload: { index: 0 } },
     ];
     const store = mockStore({ library: [{ foo: 'bar' }], currentProgram: 0 });
     store.dispatch(actions.setLibrary({}));
