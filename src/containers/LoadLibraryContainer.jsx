@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { setLibrary } from '../actions/library';
-import { loadLibraryFile } from '../minilogue/library';
+import { loadLibrarianFile } from '../minilogue/library';
 import FileInput from '../components/FileInput.jsx';
 
 const mapStateToProps = () => ({
@@ -16,7 +16,7 @@ const read = file => new Promise((resolve) => {
 const mapDispatchToProps = dispatch => ({
   onChange: (e) => {
     read(e.target.files[0])
-      .then(file => loadLibraryFile(file))
+      .then(file => loadLibrarianFile(file))
       .then(library => dispatch(setLibrary(library)));
   },
 });

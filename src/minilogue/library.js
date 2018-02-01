@@ -115,7 +115,7 @@ const parsePresetFile = (presetFileContents) => {
  * @param {*} file - The library zip file to load the library from.
  * @returns {Promise} Promise object representing the results of parsing the library.
  */
-const loadLibraryFile = file => (
+const loadLibrarianFile = file => (
   JSZip.loadAsync(file).then((archive) => {
     const infoFile = archive.file('FileInformation.xml');
     if (infoFile === null) {
@@ -184,7 +184,7 @@ const createPresetInformation = (library) => {
   return serialize(doc);
 };
 
-const createFileInformation = (library) => {
+const createFileInformation = (programs, presetData, favorites) => {
   const doc = document.implementation.createDocument('', null);
   const root = doc.createElement('KorgMSLibrarian_Data');
   const productNode = doc.createElement('Product');
@@ -192,15 +192,25 @@ const createFileInformation = (library) => {
   productNode.appendChild(productText);
   root.appendChild(productNode);
   const contentsNode = doc.createElement('Contents');
-  contentsNode.setAttribute('NumFavoriteData', '0');
-  contentsNode.setAttribute('NumProgramData', `${library.programs.length}`);
-  contentsNode.setAttribute('NumPresetInformation', '1');
-  const presetNode = doc.createElement('PresetInformation');
-  const presetFileNode = doc.createElement('File');
-  const presetFileNameNode = doc.createTextNode('PresetInformation.xml');
-  presetFileNode.appendChild(presetFileNameNode);
-  presetNode.appendChild(presetFileNode);
-  contentsNode.appendChild(presetNode);
+  contentsNode.setAttribute('NumFavoriteData', `${favorites ? 1 : 0}`);
+  contentsNode.setAttribute('NumProgramData', `${programs.length}`);
+  contentsNode.setAttribute('NumPresetInformation', `${presetData ? 1 : 0}`);
+  if (presetData) {
+    const presetNode = doc.createElement('PresetInformation');
+    const presetFileNode = doc.createElement('File');
+    const presetFileNameNode = doc.createTextNode('PresetInformation.xml');
+    presetFileNode.appendChild(presetFileNameNode);
+    presetNode.appendChild(presetFileNode);
+    contentsNode.appendChild(presetNode);
+  }
+  if (favorites) {
+    const favoriteNode = doc.createElement('FavoriteData');
+    const favoriteFileNode = doc.createElement('File');
+    const favoriteFileNameNode = doc.createTextNode('FavoriteData.fav_data');
+    favoriteFileNode.appendChild(favoriteFileNameNode);
+    favoriteNode.appendChild(favoriteFileNode);
+    contentsNode.appendChild(favoriteNode);
+  }
   const createProgramDataNode = (index) => {
     const number = (`000${index}`).slice(-3);
     const programDataNode = doc.createElement('ProgramData');
@@ -214,7 +224,7 @@ const createFileInformation = (library) => {
     programDataNode.appendChild(binaryNode);
     contentsNode.appendChild(programDataNode);
   };
-  library.programs.forEach((program, index) => createProgramDataNode(index));
+  programs.forEach((program, index) => createProgramDataNode(index));
   root.appendChild(contentsNode);
   doc.appendChild(root);
   return serialize(doc);
@@ -235,12 +245,28 @@ const createProgramInformation = () => {
   return serialize(doc);
 };
 
+const createFavoriteData = (favorites) => {
+  const doc = document.implementation.createDocument('', null);
+  const favoriteNode = doc.createElement('minilogue_Favorite');
+  const bankNode = doc.createElement('Bank');
+  favorites.forEach((value) => {
+    const child = doc.createElement('Data');
+    const textElement = doc.createTextNode(value);
+    child.appendChild(textElement);
+    bankNode.appendChild(child);
+  });
+  favoriteNode.appendChild(bankNode);
+  doc.appendChild(favoriteNode);
+  return serialize(doc);
+};
+
+
 /**
- * Create a library zip archive from a library object.
+ * Create a preset zip archive from a library object.
  * @param {Object} library - The library object to transform.
  * @returns {Promise} A Promise of the generated zip file.
  */
-const createLibraryFile = (library) => {
+const createPresetFile = (library) => {
   const zip = new JSZip();
   zip.file('FileInformation.xml', createFileInformation(library));
   zip.file('PresetInformation.xml', createPresetInformation(library));
@@ -252,4 +278,36 @@ const createLibraryFile = (library) => {
   return zip.generateAsync({ type: 'blob' });
 };
 
-export { loadLibraryFile, createLibraryFile };
+/**
+ * Create a library zip archive from a library object.
+ * @param {Object} library - The library object to transform.
+ * @returns {Promise} A Promise of the generated zip file.
+ */
+const createLibraryFile = (library) => {
+  const zip = new JSZip();
+  // Generate favorites if not given
+  const favorites = library.favorites || Array.from({ length: 8 }, (_, index) => index);
+  zip.file('FileInformation.xml', createFileInformation(library.programs, undefined, favorites));
+  zip.file('FavoriteData.fav_data', createFavoriteData(favorites));
+  library.programs.forEach((program, index) => {
+    const number = (`000${index}`).slice(-3);
+    zip.file(`Prog_${number}.prog_bin`, encodeProgram(program));
+    zip.file(`Prog_${number}.prog_info`, createProgramInformation(program));
+  });
+  return zip.generateAsync({ type: 'blob' });
+};
+
+/**
+ * Create a program zip archive from a program object.
+ * @param {Object} library - The library object to transform.
+ * @returns {Promise} A Promise of the generated zip file.
+ */
+const createProgramFile = (program) => {
+  const zip = new JSZip();
+  zip.file('FileInformation.xml', createFileInformation([program]));
+  zip.file('Prog_000.prog_bin', encodeProgram(program));
+  zip.file('Prog_000.prog_info', createProgramInformation(program));
+  return zip.generateAsync({ type: 'blob' });
+};
+
+export { loadLibrarianFile, createLibraryFile, createPresetFile, createProgramFile };

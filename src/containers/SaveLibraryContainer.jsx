@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
     const { library } = state.library;
     createLibraryFile(library)
       .then((blob) => {
-        saveAs(blob, `${library.name || 'Library'}.mnlgpreset`);
+        saveAs(blob, `${library.name || 'Library'}.mnlglib`);
       });
   },
 });
