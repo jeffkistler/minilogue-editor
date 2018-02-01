@@ -6,6 +6,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import Modal from 'react-modal';
+import { CSSTransition } from 'react-transition-group';
+
 import * as programLib from '../minilogue/program';
 import Button from './Button.jsx';
 import Knob from './Knob.jsx';
@@ -379,9 +381,17 @@ export default class Panel extends React.Component {
             </div>
 
           </div>
-          <div className={this.state.showExtraParameters ? 'slidedown' : 'slideup'}>
-            <ExtraParameters parameters={parameters} />
-          </div>
+          <CSSTransition
+            in={this.state.showExtraParameters}
+            timeout={200}
+            classNames="slide"
+            onEntered={(el) => { el.classList.add('slide-open'); }}
+            onExit={(el) => { el.classList.remove('slide-open'); }}
+          >
+              <div className="slide">
+                <ExtraParameters parameters={parameters} />
+              </div>
+          </CSSTransition>
           <div
             style={{
               cursor: 'pointer',

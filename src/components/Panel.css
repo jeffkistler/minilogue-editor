@@ -42,12 +42,18 @@
   text-transform: uppercase;
 }
 
-.slideup, .slidedown {
+.slide {
+  transition: max-height 200ms ease-in-out;
   max-height: 0;
   overflow-y: hidden;
-  transition: max-height 0.2s ease-in-out;
 }
-.slidedown {
+
+.slide-enter-active {
+  max-height: 160px;
+}
+
+.slide-open {
+  overflow-y: visible;
   max-height: 160px;
 }
 
