@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import SelectTable from '../components/SelectTable.jsx';
-import { setCurrentLibraryPosition } from '../actions/library';
+import ProgramTable from '../components/ProgramTable.jsx';
+import { moveLibraryProgram } from '../actions/library';
 
 
 const mapStateToProps = (state) => {
@@ -13,9 +13,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: id => dispatch(setCurrentLibraryPosition(id)),
+  onSortEnd: ({ oldIndex, newIndex }) => (
+    (oldIndex !== newIndex) && dispatch(moveLibraryProgram(oldIndex, newIndex))
+  ),
 });
 
-const LibraryContainer = connect(mapStateToProps, mapDispatchToProps)(SelectTable);
+const LibraryContainer = connect(mapStateToProps, mapDispatchToProps)(ProgramTable);
 
 export default LibraryContainer;

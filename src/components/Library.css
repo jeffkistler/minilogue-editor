@@ -4,31 +4,44 @@
   width: 100%;
 }
 
-.table th, .table td {
+.table-cell {
   text-align: left;
   padding: 1.6em;
   vertical-align: top;
   border: inherit;
 }
 
-.table thead tr {
+.table-head-row {
   border-bottom: 1px solid #e1e1e1;
 }
 
-.table thead th {
+.table-heading {
   font-weight: bolder;
   color: #3f3f3f;
   vertical-align: bottom;
 }
 
-.table tbody tr {
+.table-row {
   transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-.table tbody tr:hover {
+.table-row:hover {
   background-color: #e7e7e7;
 }
 
-.table tbody tr.selected {
-  background-color: #afafaf;
+.sorting {
+  background-color: #e7e7e7;
+  width: 100%;
+}
+
+.row-actions {
+  visibility: hidden;
+}
+
+.table-row:hover .row-actions {
+  visibility: visible;
+}
+
+.row-actions .menu-button {
+  padding-left: 1em;
 }

@@ -30,7 +30,6 @@ describe('library actions', () => {
     });
     store.dispatch(actions.setCurrentLibraryPosition(1));
     const expectedActions = [
-      { type: 'CURRENT_PROGRAM_SET', payload: true },
       { type: actions.CURRENT_LIBRARY_POSITION_SET, payload: { index: 1 } },
     ];
     expect(store.getActions()).toEqual(expectedActions);

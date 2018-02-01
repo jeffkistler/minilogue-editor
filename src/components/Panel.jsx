@@ -23,6 +23,7 @@ import SendProgramContainer from '../containers/SendProgramContainer.jsx';
 import VoiceModeContainer from '../containers/VoiceModeContainer.jsx';
 import LEDArrayContainer from '../containers/LEDArrayContainer.jsx';
 import ProgramChangeContainer from '../containers/ProgramChangeContainer.jsx';
+import WriteProgramToLibraryContainer from '../containers/WriteProgramToLibraryContainer.jsx';
 
 import './Panel.css';
 import randomIcon from '../assets/shuffle.svg';
@@ -338,7 +339,7 @@ export default class Panel extends React.Component {
                   <p className="control-label label">Edit Mode</p>
                 </li>
                 <li>
-                  <a className="button"></a>
+                  <WriteProgramToLibraryContainer />
                   <p className="control-label label">Write</p>
                 </li>
                 <li>

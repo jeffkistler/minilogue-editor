@@ -6,11 +6,13 @@ import Icon from './Icon.jsx';
 import LibraryContainer from '../containers/LibraryContainer.jsx';
 import LoadLibraryContainer from '../containers/LoadLibraryContainer.jsx';
 import SaveLibraryContainer from '../containers/SaveLibraryContainer.jsx';
+import AppendLibraryContainer from '../containers/AppendLibraryContainer.jsx';
 import { getParameterDisplayName, getParameterDisplayValue } from '../minilogue/display';
 import * as programLib from '../minilogue/program';
 import './Library.css';
 import openIcon from '../assets/open.svg';
 import saveIcon from '../assets/save.svg';
+import addIcon from '../assets/add.svg';
 
 
 const Library = props => (
@@ -33,6 +35,13 @@ const Library = props => (
           title="Save Library File"
         />
       </SaveLibraryContainer>
+      <AppendLibraryContainer title="Add a Program to the Library">
+        <Icon
+          use={addIcon.id}
+          viewBox={addIcon.viewBox}
+          title="Add a Program to the Library"
+        />
+      </AppendLibraryContainer>
     </ActionMenu>
     <div className="library">
       <LibraryContainer
