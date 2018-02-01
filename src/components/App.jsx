@@ -60,6 +60,7 @@ const App = () => (
       <Route exact path="/" component={PanelContainer}/>
       <Route path="/library" component={Library}/>
       <Route path="/configuration" component={Configuration}/>
+      <div id="footer">Made by <a href="https://github.com/jeffkistler/">Jeff Kistler</a></div>
     </div>
   </ConnectedRouter>
 );
