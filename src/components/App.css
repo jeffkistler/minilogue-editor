@@ -34,3 +34,11 @@
     vertical-align: text-bottom;
     margin-right: 1rem;
 }
+
+.menu-button:hover svg {
+  transform: scale(1.1);
+}
+
+.menu-button:active svg {
+  transform: scale(.9);
+}

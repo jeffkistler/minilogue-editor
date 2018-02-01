@@ -4,11 +4,12 @@
   width: 100%;
 }
 
-.table-cell {
+.table-cell, .sorting .table-cell {
   text-align: left;
   padding: 1.6em;
   vertical-align: top;
   border: inherit;
+  cursor: default;
 }
 
 .table-head-row {
@@ -30,8 +31,13 @@
 }
 
 .sorting {
-  background-color: #e7e7e7;
+  background-color: #e0d3d3;
   width: 100%;
+  display: table;
+}
+
+.sorting .table-cell {
+  display: table-cell;
 }
 
 .row-actions {
