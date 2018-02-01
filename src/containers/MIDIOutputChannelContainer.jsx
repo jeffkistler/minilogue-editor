@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
   const currentOutputChannel = state.configuration.midiOutputChannel;
   return {
     value: currentOutputChannel,
-    options: Array.from({ length: 16 }, (_, index) => ({ value: index, label: index })),
+    options: Array.from({ length: 16 }, (_, index) => ({ value: index, label: index + 1 })),
     clearable: false,
   };
 };

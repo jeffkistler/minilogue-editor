@@ -11,12 +11,15 @@ const mapStateToProps = (state) => {
       value: input.id,
       label: input.name,
     })),
-    clearable: false,
+    clearable: true,
+    resetValue: undefined,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  onChange: ({ value }) => dispatch(selectMIDIInput(value)),
+  onChange: selected => (selected
+    ? dispatch(selectMIDIInput(selected.value))
+    : dispatch(selectMIDIInput(undefined))),
 });
 
 const MIDIInputContainer = connect(mapStateToProps, mapDispatchToProps)(Select);

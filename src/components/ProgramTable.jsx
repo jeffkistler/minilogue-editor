@@ -80,6 +80,7 @@ const ProgramTable = ({ columns, ...props }) => (
         helperClass="sorting"
         columns={columns}
         pressDelay={100}
+        shouldCancelStart={() => (props.rows.length <= 1)}
         {...props}
       />
     </table>
