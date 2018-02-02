@@ -4,12 +4,14 @@ import { Helmet } from 'react-helmet';
 import ActionMenu from './ActionMenu.jsx';
 import Icon from './Icon.jsx';
 import LibraryContainer from '../containers/LibraryContainer.jsx';
+import NewLibraryContainer from '../containers/NewLibraryContainer.jsx';
 import LoadLibraryContainer from '../containers/LoadLibraryContainer.jsx';
 import SaveLibraryContainer from '../containers/SaveLibraryContainer.jsx';
 import AppendLibraryContainer from '../containers/AppendLibraryContainer.jsx';
 import { getParameterDisplayName, getParameterDisplayValue } from '../minilogue/display';
 import * as programLib from '../minilogue/program';
 import './Library.css';
+import newIcon from '../assets/new.svg';
 import openIcon from '../assets/open.svg';
 import saveIcon from '../assets/save.svg';
 import addIcon from '../assets/add.svg';
@@ -21,6 +23,13 @@ const Library = props => (
       <title>Library</title>
     </Helmet>
     <ActionMenu>
+      <NewLibraryContainer title="New Library">
+        <Icon
+          use={newIcon.id}
+          viewBox={newIcon.viewBox}
+          title="New Library"
+        />
+      </NewLibraryContainer>
       <LoadLibraryContainer title="Open Library File">
         <Icon
           use={openIcon.id}

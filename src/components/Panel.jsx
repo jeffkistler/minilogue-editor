@@ -17,6 +17,7 @@ import ExtraParameters from './ExtraParameters.jsx';
 import ParameterKnob from './ParameterKnob.jsx';
 import ParameterSwitch from './ParameterSwitch.jsx';
 import ProgramLink from './ProgramLink.jsx';
+import InitProgramContainer from '../containers/InitProgramContainer.jsx';
 import ProgramNameContainer from '../containers/ProgramNameContainer.jsx';
 import LibraryIndexContainer from '../containers/LibraryIndexContainer.jsx';
 import RandomProgramContainer from '../containers/RandomProgramContainer.jsx';
@@ -28,6 +29,7 @@ import ProgramChangeContainer from '../containers/ProgramChangeContainer.jsx';
 import WriteProgramToLibraryContainer from '../containers/WriteProgramToLibraryContainer.jsx';
 
 import './Panel.css';
+import newIcon from '../assets/new.svg';
 import randomIcon from '../assets/shuffle.svg';
 import sendIcon from '../assets/send.svg';
 import receiveIcon from '../assets/receive.svg';
@@ -78,6 +80,13 @@ export default class Panel extends React.Component {
         </Helmet>
 
         <ActionMenu>
+          <InitProgramContainer title="Init Program">
+            <Icon
+              use={newIcon.id}
+              viewBox={newIcon.viewBox}
+              title="Init Program"
+            />
+          </InitProgramContainer>
           <RandomProgramContainer title="Randomize Program">
             <Icon
               use={randomIcon.id}
