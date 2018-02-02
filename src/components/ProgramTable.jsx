@@ -29,13 +29,15 @@ const ProgramTableRow = SortableElement(({
         );
       })
     }
-      <td className="table-cell row-actions" key={'actions-column'}>
-        <LoadLibraryProgramContainer index={rowIndex} title="Load in Panel">
-          <Icon use={checkIcon.id} viewBox={checkIcon.viewBox} height={20} width={20}/>
-        </LoadLibraryProgramContainer>
-        <DeleteLibraryProgramContainer index={rowIndex} title="Delete from Library">
-          <Icon use={trashIcon.id} viewBox={trashIcon.viewBox} height={20} width={20}/>
-        </DeleteLibraryProgramContainer>
+      <td className="table-cell" key={'actions-column'}>
+        <div className="row-actions">
+          <LoadLibraryProgramContainer index={rowIndex} title="Load in Panel">
+            <Icon use={checkIcon.id} viewBox={checkIcon.viewBox} height={20} width={20} />
+          </LoadLibraryProgramContainer>
+          <DeleteLibraryProgramContainer index={rowIndex} title="Delete from Library">
+            <Icon use={trashIcon.id} viewBox={trashIcon.viewBox} height={20} width={20} />
+          </DeleteLibraryProgramContainer>
+        </div>
       </td>
     </tr>
 ));
