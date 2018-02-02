@@ -5,6 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { createLocation } from 'history';
 import base32Encode from 'base32-encode';
+import pako from 'pako';
 import urljoin from 'url-join';
 import { encodeProgram } from '../minilogue/program';
 import { encodeSysexData } from '../minilogue/sysex';
@@ -25,7 +26,8 @@ class ProgramLink extends React.Component {
 
   render() {
     const sysex = encodeSysexData(encodeProgram(this.props.program));
-    const encodedProgram = base32Encode(sysex, 'Crockford');
+    const data = pako.deflate(sysex);
+    const encodedProgram = base32Encode(data, 'Crockford');
     const location = createLocation(`/?sysex=${encodedProgram}`, null, null, history.location);
     const href = history.createHref(location);
     const current = window.location;

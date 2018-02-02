@@ -2,6 +2,7 @@
  * Current program state updates.
  */
 import base32Decode from 'base32-decode';
+import pako from 'pako';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import { PARAMETER_SET, CURRENT_PROGRAM_SET } from '../actions/program';
 import { INIT_PROGRAM, decodeProgram } from '../minilogue/program';
@@ -19,7 +20,12 @@ const loadFromSearch = ({ search }) => {
   let decodedProgram;
   if (parsed.has('sysex')) {
     const raw = parsed.get('sysex');
-    const data = new Uint8Array(base32Decode(raw, 'Crockford'));
+    let data = new Uint8Array(base32Decode(raw, 'Crockford'));
+    try {
+      data = pako.inflate(data);
+    } catch (err) {
+      // Maybe we have raw sysex data, so do nothing
+    }
     let sysexData;
     if (isMinilogueSysexMessage(data)) {
       if (isCurrentProgramDataDump(data)) {
