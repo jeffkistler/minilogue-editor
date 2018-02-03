@@ -5,7 +5,10 @@ import { PROGRAM_NAME } from '../minilogue/program';
 
 
 const LibraryIndexDisplay = ({ index, name }) => (
-    <p className="library-index">{`000${index}`.slice(-3)}<br />{name}</p>
+    <div className="display-contents">
+      <div>{`000${index}`.slice(-3)}</div>
+      <div>{name}</div>
+    </div>
 );
 
 LibraryIndexDisplay.propTypes = {

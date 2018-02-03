@@ -11,6 +11,7 @@ import { encodeProgram } from '../minilogue/program';
 import { parameterToMessage, PARAMETER_TO_CODE } from '../minilogue/midi';
 
 export const PARAMETER_SET = 'PARAMETER_SET';
+export const PANEL_PARAMETER_SET = 'PANEL_PARAMETER_SET';
 export const CURRENT_PROGRAM_SET = 'CURRENT_PROGRAM_SET';
 export const CURRENT_PROGRAM_REQUESTED = 'CURRENT_PROGRAM_REQUESTED';
 export const CURRENT_PROGRAM_SENT = 'CURRENT_PROGRAM_SENT';
@@ -34,7 +35,7 @@ export const setParameter = (parameter, value) => (
  */
 export const setPanelParameter = (parameter, value) => (
   (dispatch, getState) => {
-    dispatch(setParameter(parameter, value));
+    dispatch({ type: PANEL_PARAMETER_SET, payload: { parameter, value } });
     const { configuration, midi } = getState();
     if (
       (configuration.midiOutput != null) &&

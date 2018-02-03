@@ -17,9 +17,9 @@ import ExtraParameters from './ExtraParameters.jsx';
 import ParameterKnob from './ParameterKnob.jsx';
 import ParameterSwitch from './ParameterSwitch.jsx';
 import ProgramLink from './ProgramLink.jsx';
+import DisplayContainer from '../containers/DisplayContainer.jsx';
 import InitProgramContainer from '../containers/InitProgramContainer.jsx';
 import ProgramNameContainer from '../containers/ProgramNameContainer.jsx';
-import LibraryIndexContainer from '../containers/LibraryIndexContainer.jsx';
 import RandomProgramContainer from '../containers/RandomProgramContainer.jsx';
 import RequestProgramContainer from '../containers/RequestProgramContainer.jsx';
 import SendProgramContainer from '../containers/SendProgramContainer.jsx';
@@ -317,7 +317,7 @@ export default class Panel extends React.Component {
               <div id="interaction" className="panel-group">
                 <div id="screen">
                   <div id="display">
-                    <LibraryIndexContainer />
+                    <DisplayContainer />
                   </div>
                 </div>
                 <div className="control-group">

@@ -20,6 +20,18 @@ describe('program reducer', () => {
     ).toEqual(expect.objectContaining({ [CUTOFF]: 0 }));
   });
 
+  test('handles panel parameter set', () => {
+    expect(
+      reducer(
+        undefined,
+        {
+          type: actions.PANEL_PARAMETER_SET,
+          payload: { parameter: CUTOFF, value: 512 },
+        },
+      ),
+    ).toEqual(expect.objectContaining({ [CUTOFF]: 512 }));
+  });
+
   test('handles program set', () => {
     expect(
       reducer(

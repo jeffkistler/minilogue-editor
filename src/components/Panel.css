@@ -303,7 +303,7 @@
     align-items: center;
 }
 
-.library-index {
+.display-contents {
     font-family: 'Inconsolata', monospace;
     color: var(--value-color);
     text-align: center;

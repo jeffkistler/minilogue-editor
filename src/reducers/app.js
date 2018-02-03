@@ -4,6 +4,7 @@ import libraryReducer from './library';
 import midiReducer from './midi';
 import configurationReducer from './configuration';
 import discoveryReducer from './discovery';
+import displayReducer from './display';
 
 export const reducers = {
   configuration: configurationReducer,
@@ -11,6 +12,7 @@ export const reducers = {
   currentProgram: programReducer,
   midi: midiReducer,
   discovery: discoveryReducer,
+  display: displayReducer,
 };
 
 const rootReducer = combineReducers({
@@ -19,6 +21,7 @@ const rootReducer = combineReducers({
   currentProgram: programReducer,
   midi: midiReducer,
   discovery: discoveryReducer,
+  display: displayReducer,
 });
 
 export default rootReducer;

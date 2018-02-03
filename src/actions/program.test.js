@@ -36,7 +36,7 @@ describe('program actions', () => {
       },
     });
     const expectedAction = {
-      type: actions.PARAMETER_SET,
+      type: actions.PANEL_PARAMETER_SET,
       payload: {
         parameter: CUTOFF,
         value: 512,
@@ -68,7 +68,7 @@ describe('program actions', () => {
       },
     });
     const expectedAction = {
-      type: actions.PARAMETER_SET,
+      type: actions.PANEL_PARAMETER_SET,
       payload: {
         parameter: CUTOFF,
         value: 512,
@@ -98,7 +98,7 @@ describe('program actions', () => {
       },
     });
     const expectedAction = {
-      type: actions.PARAMETER_SET,
+      type: actions.PANEL_PARAMETER_SET,
       payload: {
         parameter: VOICE_MODE,
         value: 1,

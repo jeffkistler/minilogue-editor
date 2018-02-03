@@ -4,7 +4,7 @@
 import base32Decode from 'base32-decode';
 import pako from 'pako';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { PARAMETER_SET, CURRENT_PROGRAM_SET } from '../actions/program';
+import { PARAMETER_SET, PANEL_PARAMETER_SET, CURRENT_PROGRAM_SET } from '../actions/program';
 import { INIT_PROGRAM, decodeProgram } from '../minilogue/program';
 import {
   isMinilogueSysexMessage,
@@ -46,7 +46,8 @@ const loadFromSearch = ({ search }) => {
 
 export default function programReducer(program = INIT_PROGRAM, action) {
   switch (action.type) {
-    case PARAMETER_SET: {
+    case PARAMETER_SET:
+    case PANEL_PARAMETER_SET: {
       const { parameter, value } = action.payload;
       const updated = { ...program };
       updated[parameter] = value;
