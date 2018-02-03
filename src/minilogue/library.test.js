@@ -1,5 +1,6 @@
 import { serializeToString } from 'xmlserializer';
-import { createLibraryFile } from './library';
+import { createLibraryFile, createPresetFile, createProgramFile } from './library';
+import { INIT_PROGRAM } from './program';
 
 describe('library', () => {
   beforeEach(() => {
@@ -11,5 +12,13 @@ describe('library', () => {
 
   test('creating a library does not fail', () => {
     expect(createLibraryFile({ name: 'Test', programs: [] })).resolves.toBeTruthy();
+  });
+
+  test('creating a preset archive does not fail', () => {
+    expect(createPresetFile({ name: 'Test', programs: [] })).resolves.toBeTruthy();
+  });
+
+  test('creating a program archive does not fail', () => {
+    expect(createProgramFile(INIT_PROGRAM)).resolves.toBeTruthy();
   });
 });

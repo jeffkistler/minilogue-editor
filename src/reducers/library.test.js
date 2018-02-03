@@ -39,4 +39,88 @@ describe('configuration reducer', () => {
       },
     );
   });
+
+  test('handles library program move', () => {
+    expect(
+      reducer(
+        {
+          library: { programs: ['a', 'b', 'c', 'd'] },
+          currentProgram: 1,
+        },
+        {
+          type: actions.LIBRARY_PROGRAM_MOVE,
+          payload: {
+            fromIndex: 0,
+            toIndex: 2,
+          },
+        },
+      ),
+    ).toEqual(
+      {
+        library: { programs: ['b', 'c', 'a', 'd'] },
+        currentProgram: 1,
+      },
+    );
+  });
+
+  test('handles library program delete', () => {
+    expect(
+      reducer(
+        {
+          library: { programs: ['a', 'b', 'c', 'd'] },
+          currentProgram: 1,
+        },
+        {
+          type: actions.LIBRARY_PROGRAM_DELETE,
+          payload: { index: 2 },
+        },
+      ),
+    ).toEqual(
+      {
+        library: { programs: ['a', 'b', 'd'] },
+        currentProgram: 1,
+      },
+    );
+  });
+
+  test('handles library program append', () => {
+    expect(
+      reducer(
+        {
+          library: { programs: ['a'] },
+          currentProgram: 0,
+        },
+        {
+          type: actions.LIBRARY_PROGRAM_APPEND,
+        },
+      ),
+    ).toEqual(
+      {
+        library: { programs: ['a', INIT_PROGRAM] },
+        currentProgram: 0,
+      },
+    );
+  });
+
+  test('handles current library position program save', () => {
+    expect(
+      reducer(
+        {
+          library: { programs: ['a'] },
+          currentProgram: 0,
+        },
+        {
+          type: actions.LIBRARY_CURRENT_PROGRAM_SAVE,
+          payload: {
+            program: 'b',
+          },
+        },
+      ),
+    ).toEqual(
+      {
+        library: { programs: ['b'] },
+        currentProgram: 0,
+      },
+    );
+  });
 });

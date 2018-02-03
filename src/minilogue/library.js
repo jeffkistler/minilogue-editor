@@ -268,7 +268,7 @@ const createFavoriteData = (favorites) => {
  */
 const createPresetFile = (library) => {
   const zip = new JSZip();
-  zip.file('FileInformation.xml', createFileInformation(library));
+  zip.file('FileInformation.xml', createFileInformation(library.programs, library));
   zip.file('PresetInformation.xml', createPresetInformation(library));
   library.programs.forEach((program, index) => {
     const number = (`000${index}`).slice(-3);

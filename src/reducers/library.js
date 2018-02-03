@@ -79,7 +79,8 @@ export default function libraryReducer(libraryState = initialState, action) {
       return moveLibraryProgram(libraryState, fromIndex, toIndex);
     }
     case LIBRARY_PROGRAM_DELETE: {
-      return deleteLibraryProgram(libraryState, action.payload);
+      const { index } = action.payload;
+      return deleteLibraryProgram(libraryState, index);
     }
     case LIBRARY_PROGRAM_APPEND: {
       return appendLibraryProgram(libraryState);

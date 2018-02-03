@@ -65,7 +65,7 @@ export const moveLibraryProgram = (fromIndex, toIndex) => (
 export const deleteLibraryProgram = index => (
   {
     type: LIBRARY_PROGRAM_DELETE,
-    payload: index,
+    payload: { index },
   }
 );
 
