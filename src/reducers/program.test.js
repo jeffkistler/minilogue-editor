@@ -1,3 +1,4 @@
+import { LOCATION_CHANGE } from 'react-router-redux';
 import reducer from './program';
 import * as actions from '../actions/program';
 import { INIT_PROGRAM, CUTOFF } from '../minilogue/program';
@@ -42,5 +43,21 @@ describe('program reducer', () => {
         },
       ),
     ).toEqual({});
+  });
+
+  test('handles loading from querystring', () => {
+    expect(
+      reducer(
+        undefined,
+        {
+          type: LOCATION_CHANGE,
+          payload: {
+            search: 'sysex=F2E66208Y9VZFK6BCGM52218S97JYWJ8SHJG009361CWZG05RGG2035534CJ0G6EM6Z5WG60R30C3GC0860S38804JKC9G60SB091SPBRJ00P15VP82BM65G60430C4RW5A382Q8100AVM8DER',
+          },
+        },
+      ),
+    ).toEqual(
+      INIT_PROGRAM,
+    );
   });
 });
