@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { setParameter } from '../actions/program';
+import { setPanelParameter } from '../actions/program';
 
 import VoiceMode from '../components/VoiceMode.jsx';
 
@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onChange: value => dispatch(setParameter(ownProps.parameter, value)),
+  onChange: value => dispatch(setPanelParameter(ownProps.parameter, value)),
 });
 
 const VoiceModeContainer = connect(mapStateToProps, mapDispatchToProps)(VoiceMode);

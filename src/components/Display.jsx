@@ -20,10 +20,13 @@ export default class Display extends React.Component {
   componentWillReceiveProps = (nextProps) => {
     this.setState((prevState) => {
       clearInterval(prevState.intervalId);
-      const intervalId = setInterval(
-        () => this.setState({ displayParam: false }), nextProps.timeout,
-      );
-      return { displayParam: true, intervalId };
+      if (nextProps.parameter) {
+        const intervalId = setInterval(
+          () => this.setState({ displayParam: false }), nextProps.timeout,
+        );
+        return { displayParam: true, intervalId };
+      }
+      return { displayParam: false, inveralId: undefined };
     });
   }
 
@@ -33,7 +36,7 @@ export default class Display extends React.Component {
 
   render() {
     return (
-      this.state.displayParam
+      this.state.displayParam && this.props.parameter
         ? (<p className="display-contents">{this.props.value}</p>)
         : (<LibraryIndexContainer />)
     );
