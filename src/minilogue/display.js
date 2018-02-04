@@ -169,7 +169,7 @@ const translateVoiceModeDepth = (value, program) => {
 };
 
 const translateLFORate = (value, patch) => {
-  if (patch[types.LFO_BPM_SYNC]) {
+  if (!patch[types.LFO_BPM_SYNC]) {
     return value;
   }
   return rangeToChoice(
