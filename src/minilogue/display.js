@@ -69,8 +69,8 @@ const pitchEGIntToCents = value => (
       { fromRange: [492, 532], toRange: [0, 0] },
       { fromRange: [532, 548], toRange: [0, 64] },
       { fromRange: [548, 668], toRange: [64, 1024] },
-      { fromRange: [668, 1020], toRange: [256, 1200] },
-      { fromRange: [1020, 1023], toRange: [1200, 1200] },
+      { fromRange: [668, 1020], toRange: [1024, 4800] },
+      { fromRange: [1020, 1023], toRange: [4800, 4800] },
     ],
   )
 );
