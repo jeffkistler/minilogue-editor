@@ -39,7 +39,7 @@ const VoiceMode = ({ value, onChange }) => (
             </div>
           <p className="voice-mode-icon">
             <Icon
-              use={ICONS[choiceValue].id}
+              use={ICONS[choiceValue].url}
               viewBox={ICONS[choiceValue].viewBox}
               height={20}
               width={20}

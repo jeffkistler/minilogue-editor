@@ -48,7 +48,7 @@ const WAVE_ICONS = [sawtoothIcon, triangleIcon, squareIcon].map(
   icon => (
     <Icon
       key={icon.id}
-      use={icon.id}
+      use={icon.url}
       viewBox={icon.viewBox}
       height={WAVE_ICON_SIZE}
       width={WAVE_ICON_SIZE}
@@ -82,28 +82,28 @@ export default class Panel extends React.Component {
         <ActionMenu>
           <InitProgramContainer title="Init Program">
             <Icon
-              use={newIcon.id}
+              use={newIcon.url}
               viewBox={newIcon.viewBox}
               title="Init Program"
             />
           </InitProgramContainer>
           <RandomProgramContainer title="Randomize Program">
             <Icon
-              use={randomIcon.id}
+              use={randomIcon.url}
               viewBox={randomIcon.viewBox}
               title="Randomize Program"
             />
           </RandomProgramContainer>
           <SendProgramContainer title="Send Program to Minilogue">
             <Icon
-              use={sendIcon.id}
+              use={sendIcon.url}
               viewBox={sendIcon.viewBox}
               title="Send Program to Minilogue"
             />
           </SendProgramContainer>
           <RequestProgramContainer title="Request Program from Minilogue">
             <Icon
-              use={receiveIcon.id}
+              use={receiveIcon.url}
               viewBox={receiveIcon.viewBox}
               title="Request Program from Minilogue"
             />
@@ -113,7 +113,7 @@ export default class Panel extends React.Component {
             onClick={() => this.setState({ showLink: true })}
           >
             <Icon
-              use={linkIcon.id}
+              use={linkIcon.url}
               viewBox={linkIcon.viewBox}
               title="Make a Link for this Program"
             />
@@ -143,7 +143,7 @@ export default class Panel extends React.Component {
                 position: 'absolute', top: '2px', right: '2px', cursor: 'pointer',
               }}
             >
-              <Icon use={closeIcon.id} viewBox={closeIcon.viewBox} height={20} width={20} />
+              <Icon use={closeIcon.url} viewBox={closeIcon.viewBox} height={20} width={20} />
             </a>
             <ProgramLink program={parameters} />
           </Modal>
@@ -410,8 +410,8 @@ export default class Panel extends React.Component {
               prevState => ({ showExtraParameters: !prevState.showExtraParameters }),
             )}>
               {this.state.showExtraParameters
-                ? <Icon use={upIcon.id} viewBox={upIcon.viewBox} />
-                : <Icon use={downIcon.id} viewBox={downIcon.viewBox} />
+                ? <Icon use={upIcon.url} viewBox={upIcon.viewBox} />
+                : <Icon use={downIcon.url} viewBox={downIcon.viewBox} />
               }
           </div>
         </div>

@@ -21,6 +21,23 @@
     padding: 0 1em 1em 1em;
 }
 
+
+.program-title span {
+  margin-right: -20px;
+}
+.program-title span::after {
+  visibility: hidden;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('../assets/edit.svg') no-repeat;
+  content: ' ';
+}
+
+.program-title span:hover::after {
+  visibility: visible;
+}
+
 .program-name-editing {
     font-size: 20px;
 }

@@ -25,28 +25,28 @@ const Library = props => (
     <ActionMenu>
       <NewLibraryContainer title="New Library">
         <Icon
-          use={newIcon.id}
+          use={newIcon.url}
           viewBox={newIcon.viewBox}
           title="New Library"
         />
       </NewLibraryContainer>
       <LoadLibraryContainer title="Open Library File">
         <Icon
-          use={openIcon.id}
+          use={openIcon.url}
           viewBox={openIcon.viewBox}
           title="Open Library File"
         />
       </LoadLibraryContainer>
       <SaveLibraryContainer title="Save Library File">
         <Icon
-          use={saveIcon.id}
+          use={saveIcon.url}
           viewBox={saveIcon.viewBox}
           title="Save Library File"
         />
       </SaveLibraryContainer>
       <AppendLibraryContainer title="Add a Program to the Library">
         <Icon
-          use={addIcon.id}
+          use={addIcon.url}
           viewBox={addIcon.viewBox}
           title="Add a Program to the Library"
         />

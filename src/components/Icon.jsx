@@ -8,7 +8,7 @@ const Icon = props => (
     width={props.width}
     viewBox={props.viewBox}
   >
-    <use xlinkHref={`#${props.use}`} />
+    <use xlinkHref={`${props.use}`} />
   </svg>
 );
 

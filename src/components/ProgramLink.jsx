@@ -45,7 +45,7 @@ class ProgramLink extends React.Component {
         <Button
           title="Copy Link to Clipboard"
           onClick={this.copyLinkToClipboard}>
-          <Icon use={copyIcon.id} viewBox={copyIcon.viewBox} height={20} width={20} />
+          <Icon use={copyIcon.url} viewBox={copyIcon.viewBox} height={20} width={20} />
         </Button>
       </div>
     );

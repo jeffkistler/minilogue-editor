@@ -26,7 +26,7 @@ const App = () => (
         <li className="section-nav-item">
           <NavLink to={'/'} activeClassName="active" exact={true}>
             <Icon
-              use={panelIcon.id}
+              use={panelIcon.url}
               viewBox={panelIcon.viewBox}
               width={20}
               height={20}
@@ -37,7 +37,7 @@ const App = () => (
         <li className="section-nav-item">
           <NavLink to={'/library'} activeClassName="active">
             <Icon
-              use={libraryIcon.id}
+              use={libraryIcon.url}
               viewBox={libraryIcon.viewBox}
               width={20}
               height={20}
@@ -48,7 +48,7 @@ const App = () => (
         <li className="section-nav-item">
           <NavLink to={'/configuration'} activeClassName="active">
             <Icon
-              use={configurationIcon.id}
+              use={configurationIcon.url}
               viewBox={configurationIcon.viewBox}
               width={20}
               height={20}

@@ -3,6 +3,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: 'index.html',
@@ -25,12 +26,13 @@ const config = {
     rules: [
       { test: /\.(js|jsx)$/, use: 'babel-loader', exclude: /node_modules/ },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
-      { test: /\.svg$/, use: ['svg-sprite-loader'] },
+      { test: /\.svg$/, loader: 'svg-sprite-loader', options: { extract: true, esModule: false } },
     ],
   },
   plugins: [
     HtmlWebpackPluginConfig,
     CleanWebpackPluginConfig,
+    new SpriteLoaderPlugin(),
   ],
 };
 

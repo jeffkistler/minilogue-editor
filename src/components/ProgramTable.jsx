@@ -32,10 +32,10 @@ const ProgramTableRow = SortableElement(({
       <td className="table-cell" key={'actions-column'}>
         <div className="row-actions">
           <LoadLibraryProgramContainer index={rowIndex} title="Load in Panel">
-            <Icon use={checkIcon.id} viewBox={checkIcon.viewBox} height={20} width={20} />
+            <Icon use={checkIcon.url} viewBox={checkIcon.viewBox} height={20} width={20} />
           </LoadLibraryProgramContainer>
           <DeleteLibraryProgramContainer index={rowIndex} title="Delete from Library">
-            <Icon use={trashIcon.id} viewBox={trashIcon.viewBox} height={20} width={20} />
+            <Icon use={trashIcon.url} viewBox={trashIcon.viewBox} height={20} width={20} />
           </DeleteLibraryProgramContainer>
         </div>
       </td>

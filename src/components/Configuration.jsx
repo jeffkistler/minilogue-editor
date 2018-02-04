@@ -28,7 +28,7 @@ const Configuration = () => (
     <ActionMenu>
       <DiscoverDevicesContainer title="Discover Minilogue Devices">
         <Icon
-          use={searchIcon.id}
+          use={searchIcon.url}
           viewBox={searchIcon.viewBox}
           title="Discover Minilogue Devices"
         />
