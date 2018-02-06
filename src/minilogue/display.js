@@ -405,7 +405,7 @@ const DISPLAY_OPTIONS = {
   },
   [types.CUTOFF_TYPE]: {
     title: 'Filter Type',
-    label: '4-Pole',
+    label: '2-Pole',
     type: 'choice',
     choices: {
       0: '2-Pole',

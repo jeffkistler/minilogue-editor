@@ -240,7 +240,7 @@ export default class Panel extends React.Component {
               <ParameterKnob parameters={parameters} parameter={programLib.CUTOFF} classNames={['cutoff']} />
               <ParameterKnob parameters={parameters} parameter={programLib.RESONANCE} />
               <ParameterKnob parameters={parameters} parameter={programLib.CUTOFF_EG_INT} />
-              <p className="label control-label two-pole-label">2-Pole</p>
+              <p className="label control-label four-pole-label">4-Pole</p>
               <ParameterSwitch
                 parameters={parameters}
                 parameter={programLib.CUTOFF_TYPE}
